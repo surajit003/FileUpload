@@ -5,6 +5,7 @@ from upload.models import Upload
 
 
 @receiver(post_save, sender=Upload)
-def create_profile1(sender, instance, created, **kwargs):
+def process_file(sender, instance, created, **kwargs):
     if created:
         #do something
+        pass
