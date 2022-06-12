@@ -4,7 +4,11 @@ from upload import views
 
 urlpatterns = [
     path("uploads/",
-         views.UploadView.as_view(),
-         name="uploads",
+         views.UploadCreateView.as_view(),
+         name="upload_create",
+         ),
+    path("upload/<int:pk>/",
+         views.UploadDetailView.as_view(),
+         name="upload_detail",
          ),
 ]
