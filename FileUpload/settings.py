@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'upload.apps.UploadConfig',
+    'django_rq',
+    'upload',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,12 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RQ_QUEUES = {
+    'default': {
+        'HOST': config('REDIS_HOST', default='localhost'),
+        'PORT': config('REDIS_PORT', default=6379, cast=int),
+        'DB': config('REDIS_DB', default=0, cast=int),
+        'DEFAULT_TIMEOUT': 360,
+    },
+}
