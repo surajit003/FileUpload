@@ -1,9 +1,11 @@
 from django.urls import path
 
+from uploads import views
 
 urlpatterns = [
     path(
         r"^uploads/$",
-        views.SalesOrdersListView.as_view(),
-        name="list_sales_orders",
+        views.UploadView.as_view(),
+        name="uploads",
     ),
+]
