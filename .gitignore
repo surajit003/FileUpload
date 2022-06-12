@@ -1,0 +1,11 @@
+/static/
+__pycache__
+.idea/
+.coverage
+htmlcov/
+coverage.xml
+staticfiles
+.pytest_cache
+.env
+env
+venv
