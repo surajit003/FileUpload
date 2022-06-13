@@ -20,3 +20,7 @@ Currently, supports only csv file
 ##### Task checklist
     - File Upload API (DONE)
     - Tests for File Upload API (IN PROGRESS)
+
+###### API endpoints
+    - /uploads/ - Create a new upload
+    - /uploads/<id>/ - Get a specific upload
