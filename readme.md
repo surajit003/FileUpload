@@ -39,9 +39,9 @@ When a request is sent to the upload endpoint, a new upload is created if the
 initial header check is successful. If the header check fails then the user
 is redirected to the upload detail page for further instructions.
 
-If the header check is successful, a new upload is created and the upload
-status is set to PENDING. Once, the upload is saved then a post_save signal
-is trigerred to start the processing of the upload. The upload status is now
+If the header check is successful, a new upload record is created and saved in the Database
+and the upload status is set to PENDING. Once, the upload is saved then a post_save signal
+is trigerred to start the processing of the upload. The upload status is now 
 set to PROCESSING. The post_save signal adds the task to the default queue and
 the request-response thread is completed.
 
