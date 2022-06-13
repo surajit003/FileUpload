@@ -7,7 +7,7 @@ from upload import models
 
 @admin.register(models.Upload)
 class FileUploadAdmin(admin.ModelAdmin):
-    list_display = ("file_name", "uploaded_at", "status", "description")
+    list_display = ("file_name", "uploaded_at", "status", "description", "entity")
     search_fields = ("file_name",)
     readonly_fields = ("status",)
 

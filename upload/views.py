@@ -8,7 +8,7 @@ from django.shortcuts import reverse
 class UploadCreateView(CreateView):
     model = Upload
     form = UploadForm
-    fields = ("file_name", "file", "description")
+    fields = ("file_name", "file", "description", "entity")
     template_name = "upload/upload.html"
     success_url = "/upload/"
 

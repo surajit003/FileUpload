@@ -9,14 +9,26 @@ class Upload(models.Model):
         ("PROCESSING", "PROCESSING"),
         ("COMPLETED", "COMPLETED"),
     )
+    ENTITY_TYPE =(
+        ("PRODUCT", "Product"),
+        ("ORDER", "Order"),
+    )
+
     file_name = models.CharField(max_length=100)
     file = models.FileField(upload_to="uploads/")
     uploaded_at = models.DateTimeField(auto_now_add=True)
     description = models.TextField(null=True, blank=True)
+    entity = models.CharField(choices=ENTITY_TYPE, max_length=10, default="PRODUCT")
     status = FSMField(choices=STATUS, default='pending', protected=True)
+    error = models.JSONField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.file_name}"
+
+    def append_error(self, error):
+        if self.error is None:
+            self.error = []
+        self.error.append(error)
 
     @transition(field=status, source='pending', target='processing')
     def change_status_to_processing(self):
