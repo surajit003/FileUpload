@@ -1,12 +1,10 @@
+import django_rq
+
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from upload.models import Upload
-
 from upload.tasks import parse_file
-
-import django_rq
-
 from upload.utils import extract_header
 from upload.utils import validate_compulsory_header
 
