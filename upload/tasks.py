@@ -1,6 +1,8 @@
 import csv
 
+from django.core.exceptions import ValidationError
 from django.db import IntegrityError
+
 
 from upload.models import Upload, Product
 
@@ -27,7 +29,7 @@ def parse_file(upload_id):
                             "description": row["description"],
                         },
                     )
-            except IntegrityError as exc:
+            except (ValidationError,IntegrityError) as exc:
                 upload.append_error({"line_number": count, "error": str(exc)})
                 pass
             product.save()
