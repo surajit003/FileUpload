@@ -17,10 +17,11 @@ def parse_file(upload_id):
         reader = csv.DictReader(f)
         for count, row in enumerate(reader):
             try:
-                product, _ = Product.objects.update_or_create(
-                    sku=row["sku"], defaults={"name": row["name"], "price": row["price"],
-                                              "description": row["description"]}
-                )
+                if upload.entity == "PRODUCT":
+                    product, _ = Product.objects.update_or_create(
+                        sku=row["sku"], defaults={"name": row["name"], "price": row["price"],
+                                                  "description": row["description"]}
+                    )
             except IntegrityError as exc:
                 upload.append_error({"line_number": count, "error": str(exc)})
                 pass
