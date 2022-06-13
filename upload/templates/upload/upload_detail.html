@@ -1,8 +1,14 @@
 {% extends 'upload/base.html' %}
 
 {% block content %}
-  <p>FileName: - {{ upload.file_name }}</p>
-  <p>Description: - {{ upload.description }}</p>
-  <p>Status: - {{ upload.status }}</p>
-  <p>Uploaded at: - {{ upload.uploaded_at }}</p>
+    <p>FileName: - {{ upload.file_name }}</p>
+    <p>Description: - {{ upload.description }}</p>
+    <p>Status: - {{ upload.status }}</p>
+    <p>Uploaded at: - {{ upload.uploaded_at }}</p>
+    <ul>Errors
+    {% for error in upload.error %}
+        <li>line number {{ error.line_number }}</li>
+        <li>Detail {{ error.error }}</li>
+    {% endfor %}
+    </ul>
 {% endblock content %}
