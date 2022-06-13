@@ -33,6 +33,5 @@ def parse_file(upload_id):
             except (ValidationError, IntegrityError) as exc:
                 upload.append_error({"line_number": count, "error": str(exc)})
                 pass
-            product.save()
     upload.change_status_to_completed()
     upload.save()
