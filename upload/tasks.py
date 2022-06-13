@@ -1,5 +1,7 @@
 import csv
 
+from django.db import IntegrityError
+
 from upload.models import Upload, Product
 
 
@@ -13,19 +15,15 @@ def parse_file(upload_id):
 
     with open(upload.file.path, "r") as f:
         reader = csv.DictReader(f)
-        for row in reader:
+        for count, row in enumerate(reader):
             try:
-                product = Product(
-                    name=row["name"],
-                    sku=row["sku"],
-                    price=row["price"],
-                    description=row["description"],
+                product, _ = Product.objects.update_or_create(
+                    sku=row["sku"], defaults={"name": row["name"], "price": row["price"],
+                                              "description": row["description"]}
                 )
-            except KeyError as exc:
-                upload.append_error(exc)
+            except IntegrityError as exc:
+                upload.append_error({"line_number": count, "error": str(exc)})
                 pass
             product.save()
     upload.change_status_to_completed()
     upload.save()
-
-
