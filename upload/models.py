@@ -1,3 +1,4 @@
+from django.core.validators import FileExtensionValidator
 from django.db import models
 from django_fsm import FSMField
 from django_fsm import transition
@@ -15,7 +16,8 @@ class Upload(models.Model):
     )
 
     file_name = models.CharField(max_length=100)
-    file = models.FileField(upload_to="uploads/")
+    file = models.FileField(upload_to="uploads/",
+                            validators=[FileExtensionValidator(allowed_extensions=['csv'])])
     uploaded_at = models.DateTimeField(auto_now_add=True)
     description = models.TextField(null=True, blank=True)
     entity = models.CharField(choices=ENTITY_TYPE, max_length=10, default="PRODUCT")
