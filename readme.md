@@ -28,7 +28,7 @@ Currently, supports only csv file
     - /uploads/ - Create a new upload
     - /uploads/<id>/ - Get a specific upload
 
-####### - Explanation of the choice of technology
+###### Explanation of the choice of technology
     - Django - For rapid bootstraping of the app
     - Django-RQ - For asynchronous processing of the app
     - redis - queue
