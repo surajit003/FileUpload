@@ -17,3 +17,6 @@ Currently, supports only csv file
     - django_fsm
 
 
+##### Task checklist
+    - File Upload API (DONE)
+    - Tests for File Upload API (IN PROGRESS)
