@@ -4,6 +4,7 @@ CONSTRAINTS = {
         "price": {"required": True, "type": float},
         "description": {"required": True, "type": str},
         "sku": {"required": True, "type": str},
+        "active": {"required": True, "type": str},
     }
 }
 
