@@ -7,7 +7,7 @@ from upload.models import Upload, Product
 
 def parse_file(upload_id):
     """
-    Parse the file and return the data
+    Parse the file and create the products.
     """
     upload = Upload.objects.get(id=upload_id)
     upload.change_status_to_processing()
