@@ -27,6 +27,7 @@ def parse_file(upload_id):
                             "name": row["name"],
                             "price": row["price"],
                             "description": row["description"],
+                            "active": row["active"],
                         },
                     )
             except (ValidationError, IntegrityError) as exc:
