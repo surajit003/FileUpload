@@ -19,3 +19,6 @@ def process_file(sender, instance, created, **kwargs):
         header = extract_header(instance.file.path)
         if validate_compulsory_header("product", header):
             queue.enqueue(parse_file, instance.id)
+        else:
+            instance.error.append({"line_number": 0, "error": "Missing Compulsory Headers"})
+            instance.save()
