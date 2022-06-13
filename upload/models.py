@@ -1,7 +1,8 @@
-from django.core.validators import FileExtensionValidator
-from django.db import models
 from django_fsm import FSMField
 from django_fsm import transition
+
+from django.core.validators import FileExtensionValidator
+from django.db import models
 
 
 class Upload(models.Model):

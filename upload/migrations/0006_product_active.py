@@ -6,13 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('upload', '0005_alter_upload_file'),
+        ("upload", "0005_alter_upload_file"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='active',
-            field=models.CharField(choices=[('ACTIVE', 'Active'), ('INACTIVE', 'Inactive')], default='ACTIVE', max_length=10),
+            model_name="product",
+            name="active",
+            field=models.CharField(
+                choices=[("ACTIVE", "Active"), ("INACTIVE", "Inactive")],
+                default="ACTIVE",
+                max_length=10,
+            ),
         ),
     ]

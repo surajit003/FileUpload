@@ -15,7 +15,7 @@ def parse_file(upload_id):
     upload.change_status_to_processing()
     upload.save()
 
-    with open(upload.file.path, "r", encoding='utf-8') as f:
+    with open(upload.file.path, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for count, row in enumerate(reader):
             try:
@@ -29,7 +29,7 @@ def parse_file(upload_id):
                             "description": row["description"],
                         },
                     )
-            except (ValidationError,IntegrityError) as exc:
+            except (ValidationError, IntegrityError) as exc:
                 upload.append_error({"line_number": count, "error": str(exc)})
                 pass
             product.save()

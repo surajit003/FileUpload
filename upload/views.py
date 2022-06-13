@@ -1,8 +1,9 @@
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView
+from django.views.generic import DetailView
+from django.shortcuts import reverse
 
 from upload.forms import UploadForm
 from upload.models import Upload
-from django.shortcuts import reverse
 
 
 class UploadCreateView(CreateView):

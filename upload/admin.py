@@ -15,6 +15,12 @@ class FileUploadAdmin(admin.ModelAdmin):
 
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "sku", "price", "description", "active",)
+    list_display = (
+        "name",
+        "sku",
+        "price",
+        "description",
+        "active",
+    )
     search_fields = ("name", "sku")
     readonly_fields = ("created_at", "updated_at")
