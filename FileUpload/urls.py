@@ -21,9 +21,9 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('django-rq/', include('django_rq.urls')),
-    path('api/', include('upload.urls')),
+    path("admin/", admin.site.urls),
+    path("django-rq/", include("django_rq.urls")),
+    path("", include("upload.urls")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)

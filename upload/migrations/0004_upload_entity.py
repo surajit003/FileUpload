@@ -6,13 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('upload', '0003_upload_error'),
+        ("upload", "0003_upload_error"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='upload',
-            name='entity',
-            field=models.CharField(choices=[('PRODUCT', 'Product'), ('ORDER', 'Order')], default='PRODUCT', max_length=10),
+            model_name="upload",
+            name="entity",
+            field=models.CharField(
+                choices=[("PRODUCT", "Product"), ("ORDER", "Order")],
+                default="PRODUCT",
+                max_length=10,
+            ),
         ),
     ]

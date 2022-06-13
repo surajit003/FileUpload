@@ -13,7 +13,7 @@ class UploadCreateView(CreateView):
     success_url = "/upload/"
 
     def get_success_url(self):
-        return reverse('upload_detail', kwargs={'pk': self.object.pk})
+        return reverse("upload_detail", kwargs={"pk": self.object.pk})
 
 
 class UploadDetailView(DetailView):

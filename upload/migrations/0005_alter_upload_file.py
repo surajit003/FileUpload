@@ -7,13 +7,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('upload', '0004_upload_entity'),
+        ("upload", "0004_upload_entity"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='upload',
-            name='file',
-            field=models.FileField(upload_to='uploads/', validators=[django.core.validators.FileExtensionValidator(allowed_extensions=['csv'])]),
+            model_name="upload",
+            name="file",
+            field=models.FileField(
+                upload_to="uploads/",
+                validators=[
+                    django.core.validators.FileExtensionValidator(
+                        allowed_extensions=["csv"]
+                    )
+                ],
+            ),
         ),
     ]

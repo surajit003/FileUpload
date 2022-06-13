@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('upload', '0002_product'),
+        ("upload", "0002_product"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='upload',
-            name='error',
+            model_name="upload",
+            name="error",
             field=models.JSONField(blank=True, null=True),
         ),
     ]
